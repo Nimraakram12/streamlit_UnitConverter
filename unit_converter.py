@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Conversion factors with emojis
 conversion_factors = {
     '📏 Length': {
         'meter': 1,
@@ -65,7 +64,7 @@ def convert_units(value, from_unit, to_unit, category):
         base_value = value / conversion_factors[category][from_unit]
         return base_value * conversion_factors[category][to_unit]
 
-# Streamlit app configuration
+
 st.set_page_config(page_title="Ultimate Unit Converter", page_icon="📐", layout="wide")
 
 # Dark mode toggle in session state
@@ -76,7 +75,7 @@ def toggle_dark_mode():
     st.session_state.dark_mode = not st.session_state.dark_mode
 
 
-# Dynamic CSS based on dark mode state
+
 dark_mode_css = """
 <style>
     :root {
@@ -140,15 +139,15 @@ dark_mode_css = """
 </style>
 """
 
-# Apply CSS
+
 st.markdown(dark_mode_css, unsafe_allow_html=True)
 st.markdown(f'<body class="{"light-mode" if not st.session_state.dark_mode else "dark-mode"}">', unsafe_allow_html=True)
 
 
-# Header
+
 st.markdown('<div class="header">🚀 Ultimate Unit Converter 🌈</div>', unsafe_allow_html=True)
 
-# Main layout
+
 col1, col2 = st.columns([1, 1])
 
 with col1:
@@ -169,8 +168,6 @@ with col2:
         </p>
     </div>
     """, unsafe_allow_html=True)
-
-# Conversion section
 with st.container():
     st.markdown('<div class="category-box">', unsafe_allow_html=True)
     
